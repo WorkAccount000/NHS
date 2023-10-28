@@ -1,1 +1,13 @@
 @charset "UTF-8";
+
+.content > *:not(:last-child) {
+	margin-bottom: 64px;
+}
+
+.login-form > *:not(:last-child) {
+	margin-bottom: 40px;
+}
+
+label {
+	font-weight: bold;
+}

@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-/* ---------- header ---------- */
+/* ======================================== */
+/*           | header |           */
+/* ======================================== */
 .wrapper {
 	width: 100%;
 	min-height: 100vh;
@@ -60,7 +62,26 @@ main {
 	justify-content: center;
 }
 
-/* ---------- 共通部分 ---------- */
+/* ======================================== */
+/*           | 共通パーツ |           */
+/* ======================================== */
+
+label {
+	display: inline-block;
+	width: 120px;
+	text-align: center;
+}
+
+.input-area {
+	border: 1px solid #000;
+	border-radius: 4px;
+	padding: 4px;
+}
+
+.input-area:focus {
+	border: 2px solid #58b2dc;
+}
+
 .btn {
 	display: block;
 	width: 160px;
@@ -75,4 +96,14 @@ main {
 	background-color: #fff;
 	border: 2px solid #58b2dc;
 	color: #58b2dc;
+}
+
+/* ======================================== */
+/*           | 汎用スタイル |           */
+/* ======================================== */
+
+.centering {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
 }
