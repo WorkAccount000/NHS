@@ -30,10 +30,22 @@ dependencies {
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	runtimeOnly("org.postgresql:postgresql")
+	//runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+	
+	// Added dependencies by my self.
+	// https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2")
+	// https://mvnrepository.com/artifact/org.mybatis/mybatis
+	implementation("org.mybatis:mybatis:3.5.13")
+	// https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core
+	implementation("org.mybatis.generator:mybatis-generator-core:1.4.2")
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	runtimeOnly("org.postgresql:postgresql:42.6.0")
+	
+	
 }
 
 tasks.withType<Test> {
