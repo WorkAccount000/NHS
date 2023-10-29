@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+/* ---------- header ---------- */
+.wrapper {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	height: 70px;
+	background-color: lightgray;
+}
+
+.header-left {
+	display: flex;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+}
+
+.header-icon {
+	width: 60px;
+	height: 60px;
+	margin-left: 40px;
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+.header-right {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+.project-title {
+	margin-right: 40px;
+}
+
+main {
+	flex-grow: 1;
+	display: flex;
+}
+
+.contents-container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* ---------- 共通部分 ---------- */
+.btn {
+	display: block;
+	width: 160px;
+	height: 40px;
+	border-radius: 8px;
+	background-color: #58b2dc;
+	color: #fff;
+	font-weight: bold;
+}
+
+.btn:hover {
+	background-color: #fff;
+	border: 2px solid #58b2dc;
+	color: #58b2dc;
+}

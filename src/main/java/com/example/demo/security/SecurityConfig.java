@@ -21,6 +21,7 @@ public class SecurityConfig {
 				test -> test
 					.requestMatchers("/register").permitAll()
 					.requestMatchers("/common").permitAll()
+					
 					.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 					.anyRequest().authenticated());
 		return http.build();
