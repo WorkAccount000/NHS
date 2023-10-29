@@ -7,7 +7,3 @@
 .login-form > *:not(:last-child) {
 	margin-bottom: 40px;
 }
-
-label {
-	font-weight: bold;
-}

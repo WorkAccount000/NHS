@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.content-item {
+	outline: 3px solid #B5CAA0;
+	border-radius: 8px;
+	padding: 24px;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.content-item:first-child {
+	margin-bottom: 64px;
+}
+
+.description {
+	margin-top: 32px;
+}
+
+a {
+	margin-top: 32px;
+}

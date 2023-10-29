@@ -66,16 +66,25 @@ main {
 /*           | 共通パーツ |           */
 /* ======================================== */
 
+.form-index {
+	display: flex;
+	align-items: center;
+}
+
 label {
-	display: inline-block;
+	display: block;
 	width: 120px;
 	text-align: center;
+	font-weight: bold;
 }
 
 .input-area {
+	display: block;
+	width: 200px;
+	height: 40px;
 	outline: 1px solid #000;
 	border-radius: 4px;
-	padding: 4px;
+	padding: 0 4px;
 }
 
 .input-area:focus {

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.content > *:not(:last-child) {
+	margin-bottom: 64px;
+}
+
+.login-form > *:not(:last-child) {
+	margin-bottom: 40px;
+}
+
+.label-wrap {
+	display: flex;
+	align-items: center;
+}
+
+.required {
+	background-color: #E83015;
+	color: #fff;
+	font-weight: bold;
+	padding: 6px;
+	border-radius: 4px;
+	margin-right: 16px;
+}

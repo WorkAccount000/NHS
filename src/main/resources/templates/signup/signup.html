@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Team Dev Login</title>
+<title>Team Dev Signup</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
 <link rel="stylesheet" th:href="@{/css/common/common.css}">
-<link rel="stylesheet" th:href="@{/css/login/login.css}">
+<link rel="stylesheet" th:href="@{/css/signup/signup.css}">
 </head>
 <body>
 	<div class="wrapper">
@@ -22,19 +22,32 @@
 		<main>
 			<div class="contents-container">
 				<div class="content centering">
-					<h2>ログイン</h2>
+					<h2>新規会員登録</h2>
 					<form class="login-form centering" th:action="@{/top}" method="post">
 						<div class="form-userid form-index">
-							<label for="userid">UserID</label>
+							<div class="label-wrap">
+								<label for="userid">UserID</label>
+								<p class="required">必須</p>
+							</div>
+							<input class="input-area" type="text">
+						</div>
+						<div class="form-email form-index">
+							<div class="label-wrap">
+								<label for="email">MailAddress</label>
+								<p class="required">必須</p>
+							</div>
 							<input class="input-area" type="text">
 						</div>
 						<div class="form-password form-index">
-							<label for="password">PassWord</label>
+							<div class="label-wrap">
+								<label for="password">PassWord</label>
+								<p class="required">必須</p>
+							</div>
 							<input class="input-area" type="password">
 						</div>
-						<button class="btn" type="submit">ログイン</button>
+						<button class="btn" type="submit">登録</button>
 					</form>
-					<a th:href="@{/signup}">新規会員登録はこちら</a>
+					<a th:href="@{/login}">ログイン画面へ</a>
 				</div>
 			</div>
 		</main>
