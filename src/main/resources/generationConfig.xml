@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="C:\Curriculum\tomcat\10\lib\postgresql-42.6.0.jar"/>
+	<context id = "PostgresTables" targetRuntime = "MyBatis3">
+		
+<!--		 スキーマ情報を取得するDBへの接続設定 -->
+		<jdbcConnection driverClass = "org.postgresql.Driver"
+			connectionURL = "jdbc:postgresql://localhost:5432/teamdevelopment"
+			userId = "postgres"
+			password = "oxcyNxR6">
+		</jdbcConnection>
+		
+<!--		SELECT 結果等を格納するドメインモデルを設定する設定-->
+		<javaModelGenerator targetPackage = "com.example.demo.mybatis.dmain" targetProject = "NHS/src/main/java">
+			<property name = "enableSubPackages" value = "false" />
+			<property name = "trimStrings" value = "true" />
+		</javaModelGenerator>
+		
+		<!-- SQL 設定が記述された XML を生成する設定 -->
+    	<sqlMapGenerator targetPackage="com.example.demo.mybatis" targetProject="NHS/src/main/resources">
+      		<property name="enableSubPackages" value="false" />
+    	</sqlMapGenerator>
+    	<!-- マッパークラスを生成する設定 -->
+    	<javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.mybatis.mapper" targetProject="NHS/src/main/java">
+      		<property name="enableSubPackages" value="false" />
+    	</javaClientGenerator>
+		
+<!--		コードを生成するテーブルを指定-->
+		<table schema = "public" tableName = "users">
+			<property name = "useActualColumnNames" value = "true" />
+		</table>
+		
+		<table schema = "public" tableName = "introductions">
+			<property name = "useActualColumnNames" value = "true" />
+		</table>
+		
+	</context>
+</generatorConfiguration>

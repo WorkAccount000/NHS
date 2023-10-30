@@ -1,5 +1,5 @@
 package com.example.demo.form;
 
-public class Dummy {
+public class List {
 
 }

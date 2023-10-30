@@ -34,6 +34,13 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+	
+	// https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
+	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2")
+	
+	// https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+	implementation("com.mysql:mysql-connector-j:8.2.0")
+	
 }
 
 tasks.withType<Test> {
