@@ -1,0 +1,35 @@
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="default" targetRuntime="MyBatis3">
+	
+		<property name="javaFileEncoding" value="UTF-8"/>
+		<property name="beginningDelimiter" value="`"/>
+		<property name="endingDelimiter" value="`"/>
+		
+		<jdbcConnection driverClass="org.postgresql.Driver"
+			connectionURL="jdbc:postgresql://localhost:5432/team-dev-test"
+			userId="training"
+			password="worker">
+		</jdbcConnection>
+		
+		<javaModelGenerator targetPackage="com.example.demo.entity" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+		
+		<sqlMapGenerator targetPackage="mybatis" targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true"/>
+		</sqlMapGenerator>
+		
+		<javaClientGenerator targetPackage="com.example.demo.repository" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true"/>
+		</javaClientGenerator>
+		
+		<table tableName="users" domainObjectName="User">
+			<columnOverride column="user_id" property="userId"/>
+			<columnOverride column="email" property="email"/>
+			<columnOverirde column="password" property="password"/>
+			<columnOverride column="created_at" property="createdDate"/>
+		</table>
+	</context>
+</generatorConfiguration>
