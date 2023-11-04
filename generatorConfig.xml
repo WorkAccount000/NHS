@@ -12,7 +12,7 @@
 			password="worker">
 		</jdbcConnection>
 		
-		<javaModelGenerator targetPackage="com.example.demo.entity" targetProject="src/main/java">
+		<javaModelGenerator targetPackage="com.example.demo.model" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true"/>
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
@@ -21,14 +21,14 @@
 			<property name="enableSubPackages" value="true"/>
 		</sqlMapGenerator>
 		
-		<javaClientGenerator targetPackage="com.example.demo.repository" targetProject="src/main/java">
+		<javaClientGenerator targetPackage="com.example.demo.mapper" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true"/>
 		</javaClientGenerator>
 		
 		<table tableName="users" domainObjectName="User">
 			<columnOverride column="user_id" property="userId"/>
 			<columnOverride column="email" property="email"/>
-			<columnOverirde column="password" property="password"/>
+			<columnOverride column="password" property="password"/>
 			<columnOverride column="created_at" property="createdDate"/>
 		</table>
 	</context>
