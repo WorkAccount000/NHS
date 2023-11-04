@@ -28,7 +28,7 @@
 		<table tableName="users" domainObjectName="User">
 			<columnOverride column="user_id" property="userId"/>
 			<columnOverride column="email" property="email"/>
-			<columnOverride column="password" property="password"/>
+			<columnOverirde column="password" property="password"/>
 			<columnOverride column="created_at" property="createdDate"/>
 		</table>
 	</context>

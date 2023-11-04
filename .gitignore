@@ -38,4 +38,4 @@ out/
 
 ### self add ###
 .DS_Store
-**/Dummy.java
+Dummy.java
