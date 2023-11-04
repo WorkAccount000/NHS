@@ -43,7 +43,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core
 	implementation("org.mybatis.generator:mybatis-generator-core:1.4.2")
 	// https://mvnrepository.com/artifact/org.postgresql/postgresql
-	runtimeOnly("org.postgresql:postgresql:42.6.0")
+	implementation("org.postgresql:postgresql:42.6.0")
 	
 	
 }
