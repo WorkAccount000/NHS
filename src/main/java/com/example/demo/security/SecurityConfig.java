@@ -20,6 +20,7 @@ public class SecurityConfig {
 			.authorizeHttpRequests(
 				test -> test
 					.requestMatchers("/signup").permitAll()
+					.requestMatchers("/register").permitAll()
 					.requestMatchers("/top").permitAll()
 					.requestMatchers("/completed").permitAll()
 					.requestMatchers("/common").permitAll()

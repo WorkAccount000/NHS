@@ -23,27 +23,27 @@
 			<div class="contents-container">
 				<div class="content centering">
 					<h2>新規会員登録</h2>
-					<form class="login-form centering" th:action="@{/top}" method="post">
+					<form class="login-form centering" th:action="@{/register}" th:object="${user}" method="post">
 						<div class="form-userid form-index">
 							<div class="label-wrap">
 								<label for="userid">UserID</label>
 								<p class="required">必須</p>
 							</div>
-							<input class="input-area" type="text">
+							<input th:field="*{userId}" class="input-area" type="text">
 						</div>
 						<div class="form-email form-index">
 							<div class="label-wrap">
 								<label for="email">MailAddress</label>
 								<p class="required">必須</p>
 							</div>
-							<input class="input-area" type="text">
+							<input th:field="*{email}" class="input-area" type="text">
 						</div>
 						<div class="form-password form-index">
 							<div class="label-wrap">
 								<label for="password">PassWord</label>
 								<p class="required">必須</p>
 							</div>
-							<input class="input-area" type="password">
+							<input th:field="*{password}" class="input-area" type="password">
 						</div>
 						<button class="btn" type="submit">登録</button>
 					</form>
