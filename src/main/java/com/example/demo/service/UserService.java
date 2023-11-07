@@ -9,8 +9,4 @@ import com.example.demo.model.User;
 @Service
 public class UserService {
 	private UserMapper userMapper;
-	
-	public User search(UserSearchRequest userSearchRequest) {
-		return userMapper.search(userSearchRequest);
-	}
 }

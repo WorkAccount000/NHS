@@ -9,16 +9,16 @@
 			password="worker">
 		</jdbcConnection>
 		
-    	<javaModelGenerator targetPackage="com.example.demo.model" targetProject="src/main/java">
+    	<javaModelGenerator targetPackage="com.example.demo.model" targetProject="NHS/src/main/java">
 			<property name="enableSubPackages" value="true"/>
 			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
 		
-		<sqlMapGenerator targetPackage="com.example.demo.mapper" targetProject="src/main/resources">
+		<sqlMapGenerator targetPackage="com.example.demo.mapper" targetProject="NHS/src/main/resources">
 			<property name="enableSubPackages" value="true"/>
 		</sqlMapGenerator>
 		
-    	<javaClientGenerator targetPackage="com.example.demo.mapper" targetProject="src/main/java">
+    	<javaClientGenerator targetPackage="com.example.demo.mapper" targetProject="NHS/src/main/java" type="XMLMAPPER">
 			<property name="enableSubPackages" value="true"/>
 		</javaClientGenerator>
 		
