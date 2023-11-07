@@ -26,7 +26,7 @@
 			<columnOverride column="user_id" property="userId"/>
 			<columnOverride column="email" property="email"/>
 			<columnOverride column="password" property="password"/>
-			<columnOverride column="created_at" property="createdDate"/>
+			<columnOverride column="created_at" javaType="java.time.LocalDate" property="createdDate"/>
 		</table>
 		
   	</context>

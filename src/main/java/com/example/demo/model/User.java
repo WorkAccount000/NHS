@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import java.util.Date;
 
+import com.example.demo.form.SignupForm;
+
 import lombok.Data;
 
 @Data
@@ -89,5 +91,11 @@ public class User {
 	 */
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
+	}
+	
+	public void importForm(SignupForm form) {
+		this.userId = form.getUserId();
+		this.email = form.getEmail();
+		this.password = form.getPassword();
 	}
 }
