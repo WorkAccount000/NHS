@@ -24,29 +24,38 @@
 				<div class="content centering">
 					<h2>新規会員登録</h2>
 					<form class="login-form centering" th:action="@{/signup}" th:object="${form}" method="post">
-						<div class="form-userid form-index">
+						<div class="form-entry entry-userid">
 							<div class="error-print" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" style="color:red"></div>
-							<div class="label-wrap">
-								<label for="userid">UserID</label>
-								<p class="required">必須</p>
+							<div class="form-userid form-index">
+								
+								<div class="label-wrap">
+									<label for="userid">UserID</label>
+									<p class="required">必須</p>
+								</div>
+								<input th:field="*{userId}" class="input-area" type="text">
 							</div>
-							<input th:field="*{userId}" class="input-area" type="text">
 						</div>
-						<div class="form-email form-index">
+						<div class="form-entry entry-email">
 							<div class="error-print" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red"></div>
-							<div class="label-wrap">
-								<label for="email">MailAddress</label>
-								<p class="required">必須</p>
+							<div class="form-email form-index">
+								
+								<div class="label-wrap">
+									<label for="email">MailAddress</label>
+									<p class="required">必須</p>
+								</div>
+								<input th:field="*{email}" class="input-area" type="text">
 							</div>
-							<input th:field="*{email}" class="input-area" type="text">
 						</div>
-						<div class="form-password form-index">
+						<div class="form-entry entry-password">
 							<div class="error-print" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color:red"></div>
-							<div class="label-wrap">
-								<label for="password">PassWord</label>
-								<p class="required">必須</p>
+							<div class="form-password form-index">
+								
+								<div class="label-wrap">
+									<label for="password">PassWord</label>
+									<p class="required">必須</p>
+								</div>
+								<input th:field="*{password}" class="input-area" type="password">
 							</div>
-							<input th:field="*{password}" class="input-area" type="password">
 						</div>
 						<button class="btn" type="submit">登録</button>
 					</form>

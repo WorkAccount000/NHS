@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.form.GroupOrder;
 import com.example.demo.form.SignupForm;
 import com.example.demo.service.UserService;
 
@@ -22,22 +23,21 @@ public class SignupController {
 	}
 	
 	@GetMapping("/signup")
-	public String getSignup(Model model, @ModelAttribute SignupForm form) {
-
-		System.out.println(form);
-		model.addAttribute("form", form);
+	public String getSignup(Model model) {
+		model.addAttribute("form", new SignupForm());
 		return "signup/signup";
 	}
 	
 	@PostMapping("/signup")
 	public String register( Model model,
-			//@Validated(GroupOrder.class) @ModelAttribute SignupForm form,
-			@Validated @ModelAttribute SignupForm form,
+			@Validated(GroupOrder.class) @ModelAttribute("form") SignupForm form,
+//			@Validated @ModelAttribute("form") SignupForm form,
 			BindingResult result) {
 		if(result.hasErrors()) {
 			System.out.println("Validated error.");
-			System.out.println(form);
-			return getSignup(model, form);
+			//return getSignup(model);
+			model.addAttribute("form", form);
+			return "signup/signup";
 		}
 //		User user = new User();
 //		boolean registrable = userService.checkRegistrable(form.getUserId());
