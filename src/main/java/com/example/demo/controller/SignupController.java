@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.form.GroupOrder;
 import com.example.demo.form.SignupForm;
+import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 
 @Controller
@@ -31,29 +34,26 @@ public class SignupController {
 	@PostMapping("/signup")
 	public String register( Model model,
 			@Validated(GroupOrder.class) @ModelAttribute("form") SignupForm form,
-//			@Validated @ModelAttribute("form") SignupForm form,
 			BindingResult result) {
 		if(result.hasErrors()) {
 			System.out.println("Validated error.");
-			//return getSignup(model);
 			model.addAttribute("form", form);
 			return "signup/signup";
 		}
-//		User user = new User();
-//		boolean registrable = userService.checkRegistrable(form.getUserId());
-//		String result = "";
-//		if(registrable) {
-//			user.importForm(form);
-//			// post で受け取ったUserクラスの password をハッシュ化
-//			user.setPassword(userService.getHashString(user.getPassword()));
-//			user.setCreatedDate(LocalDate.now());
-//			userService.register(user);
-//			result = "top/top";
-//		} else {
-//			model.addAttribute(form);
-//			result = "signup/signup";
-//		}
-//		return result;
-		return "top/top";
+		User user = new User();
+		boolean registrable = userService.checkRegistrable(form.getUserId());
+		String res = "";
+		if(registrable) {
+			user.importForm(form);
+			// post で受け取ったUserクラスの password をハッシュ化
+			user.setPassword(userService.getHashString(user.getPassword()));
+			user.setCreatedDate(LocalDate.now());
+			userService.register(user);
+			res = "redirect:/top/";
+		} else {
+			model.addAttribute(form);
+			res = "signup/signup";
+		}
+		return res;
 	}
 }

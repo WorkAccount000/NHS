@@ -15,9 +15,13 @@ public class UserService {
 		this.userMapper = userMapper;
 	}
 	
-	// User クラスを受け取って登録可能であれば登録する。
+	// User クラスを受け取って登録する。
 	public void register(User user) {
 		userMapper.insert(user);
+	}
+	
+	public User searchById(String id) {
+		return userMapper.selectByPrimaryKey(id);
 	}
 	
 	public boolean checkRegistrable(String userId) {

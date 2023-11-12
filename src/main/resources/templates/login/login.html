@@ -23,14 +23,16 @@
 			<div class="contents-container">
 				<div class="content centering">
 					<h2>ログイン</h2>
-					<form class="login-form centering" th:action="@{/top}" method="post">
+					<form class="login-form centering" th:action="@{/login/login_check}" th:object="${form}" method="post">
+						<div class="error-print" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" style="color:red"></div>
 						<div class="form-userid form-index">
 							<label for="userid">UserID</label>
-							<input class="input-area" type="text">
+							<input th:field="*{userId}" class="input-area" type="text">
 						</div>
+						<div class="error-print" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color:red"></div>
 						<div class="form-password form-index">
 							<label for="password">PassWord</label>
-							<input class="input-area" type="password">
+							<input th:field="*{password}" class="input-area" type="password">
 						</div>
 						<button class="btn" type="submit">ログイン</button>
 					</form>
