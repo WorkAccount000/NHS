@@ -36,7 +36,6 @@ public class SignupController {
 			@Validated(GroupOrder.class) @ModelAttribute("form") SignupForm form,
 			BindingResult result) {
 		if(result.hasErrors()) {
-			System.out.println("Validated error.");
 			model.addAttribute("form", form);
 			return "signup/signup";
 		}
