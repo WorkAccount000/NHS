@@ -12,7 +12,7 @@ public class LoginForm {
 	@Pattern(regexp="^[!-~]+$", message="{0}は半角英数字のみで入力してください。", groups = ValidGroup3.class)
 	@Length(min=3, max=10, groups = ValidGroup4.class)
 	@Pattern(regexp="^[0-9A-Za-z]+$", message="{0}は特殊記号を使用しないでください。", groups = ValidGroup5.class)
-	private String userId;
+	private String username;
 
 	@NotBlank(groups = ValidGroup1.class)
 	@Pattern(regexp="^[!-~]+$", message="{0}は半角英数字のみで入力してください。", groups = ValidGroup3.class)

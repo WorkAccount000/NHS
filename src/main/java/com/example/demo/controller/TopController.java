@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TopController {
 	@GetMapping("/")
 	public String top(Model model) {
-		return "top/top.html";
+		return "top/top";
 	}
 }

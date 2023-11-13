@@ -13,10 +13,12 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 	private final CustomAuthenticationProvider customAuthProvider;
+	private final CustomAuthenticationFailureHandler customAuthFailureHandler;
 	
 	@Autowired
-	public SecurityConfig(CustomAuthenticationProvider customAuthProvider) {
+	public SecurityConfig(CustomAuthenticationProvider customAuthProvider, CustomAuthenticationFailureHandler customAuthFailureHandler) {
 		this.customAuthProvider = customAuthProvider;
+		this.customAuthFailureHandler = customAuthFailureHandler;
 	}
 	
 	@Bean
@@ -27,7 +29,8 @@ public class SecurityConfig {
 					.loginPage("/login/")
 					.loginProcessingUrl("/login/login_check")
 					.defaultSuccessUrl("/top/", true)
-					.failureUrl("/login/")
+					.failureHandler(customAuthFailureHandler)
+					//.failureUrl("/login/")
 					.permitAll())
 			.authorizeHttpRequests(
 				test -> test
@@ -39,6 +42,7 @@ public class SecurityConfig {
 		return http.build();
 	}
 	
+	@Autowired
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(customAuthProvider);
 	}

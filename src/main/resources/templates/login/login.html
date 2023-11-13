@@ -24,10 +24,13 @@
 				<div class="content centering">
 					<h2>ログイン</h2>
 					<form class="login-form centering" th:action="@{/login/login_check}" th:object="${form}" method="post">
-						<div class="error-print" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" style="color:red"></div>
+						<div th:if="${param.error}">
+							<p style="color:red">ユーザー名またはパスワードが正しくありません。</p>
+						</div>
+						<div class="error-print" th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color:red"></div>
 						<div class="form-userid form-index">
-							<label for="userid">UserID</label>
-							<input th:field="*{userId}" class="input-area" type="text">
+							<label for="username">UserID</label>
+							<input th:field="*{username}" class="input-area" type="text">
 						</div>
 						<div class="error-print" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color:red"></div>
 						<div class="form-password form-index">
