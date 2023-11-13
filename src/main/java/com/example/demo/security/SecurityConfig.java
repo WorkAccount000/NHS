@@ -24,13 +24,14 @@ public class SecurityConfig {
 		http
 			.formLogin(
 				login -> login
-					.loginPage("/login/").permitAll()
-					.defaultSuccessUrl("/top/"))
+					.loginPage("/login/")
+					.loginProcessingUrl("/login/login_check")
+					.defaultSuccessUrl("/top/", true)
+					.failureUrl("/login/")
+					.permitAll())
 			.authorizeHttpRequests(
 				test -> test
 					.requestMatchers("/signup").permitAll()
-					.requestMatchers("/login/*").permitAll()
-					.requestMatchers("/top/").permitAll()
 					.requestMatchers("/completed").permitAll()
 					.requestMatchers("/common").permitAll()
 					.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
