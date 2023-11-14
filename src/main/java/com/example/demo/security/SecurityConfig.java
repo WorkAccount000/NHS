@@ -28,9 +28,8 @@ public class SecurityConfig {
 				login -> login
 					.loginPage("/login/")
 					.loginProcessingUrl("/login/login_check")
-					.defaultSuccessUrl("/top/", true)
 					.failureHandler(customAuthFailureHandler)
-					//.failureUrl("/login/")
+					.defaultSuccessUrl("/top/", true)
 					.permitAll())
 			.authorizeHttpRequests(
 				test -> test
