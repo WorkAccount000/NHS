@@ -21,10 +21,10 @@ header {
     display: block;
 }
 
-/* ----------------- 画面背景色地味に変えてます ----------------- */
+/* ------------------------- 画面背景色地味に変えてます ------------------------------ */
 
-main{
-    background-color:ghostwhite;
+main {
+    background-color: ghostwhite;
 }
 
 /* ----------------------- フォームスタイル　-----------------------*/
@@ -61,7 +61,23 @@ label {
     border-radius: 3px;
 }
 
-textarea {
+textarea[name=DisplaySmallField] {
+    width: 600px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: none;
+}
+
+textarea[name=DisplayMiddleField] {
+    width: 600px;
+    height: 60px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: none;
+}
+
+textarea[name=DisplayLargeField] {
     width: 600px;
     height: 100px;
     border: 1px solid #ccc;
@@ -85,27 +101,6 @@ textarea {
     height: 25px;
 }
 
-/* ------------- ラジオボタンとチェックボックス ----------- */
-
-/* 性別ラジオボタンデザイン */
-.gender {
-    display: flex;
-    justify-content: flex-start;
-    width: 600px;
-}
-
-/* 趣味チェックボックスデザイン　*/
-.hobby {
-    display: flex;
-    justify-content: flex-start;
-    width: 600px;
-}
-
-/* チェックボックスとラジオボタンの間隔空け指定 */
-p {
-    margin-right: 15px;
-}
-
 /* ------------------- 送信/戻るボタンデザイン --------------- */
 
 .btn {
@@ -120,8 +115,8 @@ p {
     margin-right: 40px;
 
     display: flex;
-    justify-content: center; 
-    align-items: center;    
+    justify-content: center;
+    align-items: center;
 }
 
 .btn:hover {

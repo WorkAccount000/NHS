@@ -1,31 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Test team input</title>
-<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-<link rel="stylesheet" th:href="@{/css/common/common.css}">
-<link rel="stylesheet" th:href="@{/css/input/input.css}">
+	<meta charset="UTF-8">
+	<title>自己紹介登録画面</title>
+	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+	<link rel="stylesheet" th:href="@{/css/input/input.css}">
 </head>
+
 <body>
-	<div class="wrapper">
+
+	<body>
 		<header>
-			<div class="header-left">
-				<div class="header-icon">
-					<img class="icon" th:src="@{/images/icon.png}" alt="アイコン">
-				</div>
-			</div>
-			<div class="header-right">
+			<ul class="header-icon">
+				<img class="icon" th:src="@{/images/icon.png}" alt="アイコン">
+			</ul>
+
+			<div class="headerMenu">
 				<h2 class="project-title">JavaTeamDevelopment</h2>
 			</div>
 		</header>
+
 		<main>
-			<div class="contents-container">
-				<div class="content">
-					
-				</div>
+			<!-- タイトル -->
+			<div class="title">
+				<h4>自己紹介の内容を紹介してください</h4>
 			</div>
+			<br>
+			
+			<form method="post">
+
+				<div class="main_form">
+					<!--　名前入力欄 -->
+
+					<div class="input">
+						<label for="id">名前</label>
+						<input id="id" type="text" name="name">
+					</div>
+					<br>
+					
+					
+					<!-- フリガナ入力欄 -->
+					<div class="input">
+						<label for="id">フリガナ</label>
+						<input id="id" type="text" name="subName">
+					</div>
+					<br>
+
+
+
+					<!-- 性別入力欄　-->
+					<div class="input">
+						<label for="gender">性別</label>
+						<div class="gender">
+							<input type="radio" id="male" name="gender" value="male">
+							<p>男性</p>
+
+							<input type="radio" id="female" name="gender" value="female">
+							<p>女性</p>
+						</div>
+					</div>
+					<br>
+
+
+
+
+
+					<!-- 趣味項目 -->
+
+					<!--- 趣味1行目 -->
+					<div class="input">
+						<label for="hobby">趣味</label>
+
+						<div class="hobby">
+							<input type="checkbox" name="hobby" value="趣味1">
+							<p>趣味1</p>
+
+							<input type="checkbox" name="hobby" value="趣味2">
+							<p>趣味2</p>
+
+							<input type="checkbox" name="hobby" value="趣味3">
+							<p>趣味3</p>
+
+							<input type="checkbox" name="hobby" value="趣味4">
+							<p>趣味4</p>
+
+							<input type="checkbox" name="hobby" value="趣味5">
+							<p>趣味5</p>
+						</div>
+					</div>
+					<br>
+					<!-- 趣味2行目 -->
+					<div class="input">
+						<label for="hobby"></label>
+
+						<div class="hobby">
+							<input type="checkbox" name="hobby" value="趣味6">
+							<p>趣味6</p>
+
+							<input type="checkbox" name="hobby" value="趣味7">
+							<p>趣味7</p>
+						</div>
+					</div>
+					<br>
+
+					<!--ひとこと入力欄 -->
+					<div class="input">
+						<label for="id">ひとこと</label>
+						<textarea name="comment"></textarea>
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+
+					<!-- 送信/戻るボタン -->
+					<div class="input">
+						<label for="id"></label>
+
+						<div class="button">
+							<button formaction="/inputCheck"   class="btn">戻る</button>
+							<button formaction="/inputCheck"  class="btn">次へ</button>
+						</div>
+					</div>
+				</div>
+			</form>
 		</main>
-	</div>
-</body>
+	</body>
+
 </html>

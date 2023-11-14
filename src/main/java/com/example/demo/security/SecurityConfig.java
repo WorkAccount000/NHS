@@ -10,8 +10,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 			.formLogin(
 				login -> login
@@ -19,9 +19,8 @@ public class SecurityConfig {
 					.defaultSuccessUrl("/login"))
 			.authorizeHttpRequests(
 				test -> test
-					.requestMatchers("/register").permitAll()
-					.requestMatchers("/common").permitAll()
-					
+				.requestMatchers("/register", "/common", "/input", "/inputCheck","/input/inputCheck")
+                .permitAll()
 					.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 					.anyRequest().authenticated());
 		return http.build();

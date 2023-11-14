@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>自己紹介登録確認画面</title>
+	<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+	<link rel="stylesheet" th:href="@{/css/input/inputCheck.css}">
+</head>
+
+<body>
+
+	<header>
+		<ul class="header-icon">
+			<img class="icon" th:src="@{/images/icon.png}" alt="アイコン">
+		</ul>
+
+		<div class="headerMenu">
+			<h2 class="project-title">JavaTeamDevelopment</h2>
+		</div>
+	</header>
+
+	<main>
+		<div class="title">
+			<h4>自己紹介登録確認</h4>
+		</div>
+		<br>
+
+		<div class="main_form">
+			<!-- 名前表示 -->
+			<div class="input">
+				<label for="id">名前</label>
+				<textarea name="DisplaySmallField" th:text="${ir.name}" readonly></textarea>
+			</div>
+			<br>
+			<br>
+
+			<!-- フリガナ表示 -->
+			<div class="input">
+				<label for="id">フリガナ</label>
+				<textarea name="DisplaySmallField" th:text="${ir.subName}" readonly></textarea>
+			</div>
+			<br>
+			<br>
+
+			<!-- 性別表示 -->
+			<div class="input">
+				<label for="gender">性別</label>
+				<textarea name="DisplaySmallField" th:text="${ir.gender}" readonly></textarea>
+			</div>
+			<br>
+			<br>
+
+			<!-- 趣味表示 -->
+			<div class="input">
+				<label for="hobby">趣味</label>
+				<textarea name="DisplayMiddleField" th:text="${ir.hobby}" readonly></textarea>
+			</div>
+			<br>
+			<br>
+			<br>
+
+			<!-- ひとこと表示 -->
+			<div class="input">
+				<label for="id">ひとこと</label>
+				<textarea name="DisplayLargeField" th:text="${ir.comment}" readonly></textarea>
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<!-- 送信/戻るボタン -->
+		<div class="input">
+			<div class="button">
+				<input type="submit" value="戻る" class="btn">
+				<input type="submit" value="完了" class="btn">
+			</div>
+		</div>
+	</main>
+</body>
+
+
+</html>
