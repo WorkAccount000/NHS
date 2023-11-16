@@ -27,6 +27,8 @@ public class SecurityConfig {
 			.formLogin(
 				login -> login
 					.loginPage("/login/")
+					.usernameParameter("username")
+					.passwordParameter("password")
 					.loginProcessingUrl("/login/login_check")
 					.failureHandler(customAuthFailureHandler)
 					.defaultSuccessUrl("/top/", true)
@@ -34,8 +36,8 @@ public class SecurityConfig {
 			.authorizeHttpRequests(
 				test -> test
 					.requestMatchers("/signup").permitAll()
-					.requestMatchers("/completed").permitAll()
-					.requestMatchers("/common").permitAll()
+//					.requestMatchers("/completed").permitAll()
+//					.requestMatchers("/common").permitAll()
 					.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 					.anyRequest().authenticated());
 		return http.build();
