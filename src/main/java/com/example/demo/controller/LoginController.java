@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 @GetMapping("/login")
 public String common(Model model) {
-return "login/login.html";
+return "common/login.html";
 }
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>詳細画面</title>
+<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+<link rel="stylesheet" th:href="@{/css/detail/detail.css}">
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<div class="header-left">
+				<div class="header-icon">
+					<img class="icon" th:src="@{/images/icon.png}" alt="アイコン">
+				</div>
+			</div>
+			<div class="header-right">
+				<h2 class="project-title">JavaTeamDevelopment</h2>
+			</div>
+		</header>
+		<main>
+			<div class="contents-container">
+				<div class="content">
+					<div class = "introduction-wrapper">
+						<table>
+							<tr>
+								<th>名前</th>
+								<th>：</th>
+								<th th:text = "${ir.name}"></th>
+							</tr>
+							<tr>
+								<th>フリガナ</th>
+								<th>：</th>
+								<th th:text = "${ir.kana}"></th>
+							</tr>
+							<tr>
+								<th>性別</th>
+								<th>：</th>
+								<th th:text = "${ir.gender}"></th>
+							</tr>
+							<tr>
+								<th>趣味</th>
+								<th>：</th>
+								<th th:text = "${ir.hobby}"></th>
+							</tr>
+							<tr>
+								<th>一言</th>
+								<th>：</th>
+								<th th:text = "${ir.word}"></th>
+							</tr>
+						</table>
+					</div>
+					<div class = "btn-wrapper">
+						<form action = "/list">
+							<button class = "btn cmn" name = "return">戻る</button>
+						</form>
+						<form>
+							<button class = "btn cmn" name = "edit">編集</button> 
+						</form>
+						<form>
+							<button class = "btn dlt" name = "delete">削除</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/* ---------- 共通部分 ---------- */
+
+/* ---------- header ---------- */
+.wrapper {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	height: 70px;
+	background-color: lightgray;
+}
+
+.header-left {
+	display: flex;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+}
+
+.header-icon {
+	width: 60px;
+	height: 60px;
+	margin-left: 40px;
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+.header-right {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+.project-title {
+	margin-right: 40px;
+}
+
+main {
+	flex-grow: 1;
+	display: flex;
+}
+
+.contents-container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+/* ---------- 以下　固有部分 ---------- */
+th{
+	text-align: left;
+	padding: 20px;
+	font-size: 20px;
+}
+
+.btn-wrapper{
+	display: flex;
+	font-size: 20px;
+	justify-content: center;
+	padding-top: 50px;
+}
+
+.btn{
+	height: 50px;
+	width: 70px;
+}
+
+.cmn{
+	margin-right: 50px;
+	background-color: rgb(104, 143, 234);
+	box-shadow: -6px 4px 4px rgb(104, 143, 234);
+	border: 1px solid rgb(33, 81, 129);
+}
+
+.dlt{
+	background-color: rgb(255, 162, 162);
+	box-shadow: -6px 4px 4px rgb(255, 162, 162);
+	border: 1px solid rgb(147, 0, 0);
+}

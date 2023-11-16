@@ -345,4 +345,9 @@
       updated_at = #{updated_at,jdbcType=DATE}
     where introduction = #{introduction,jdbcType=INTEGER}
   </update>
+  
+  <select id = "introList" resultType = "com.example.demo.mybatis.dmain.Introductions">
+  	select * from introductions
+  </select>
+  
 </mapper>

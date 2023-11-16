@@ -99,6 +99,6 @@ public interface IntroductionsMapper {
     int updateByPrimaryKey(Introductions row);
     
     // Add Start
-    Introductions introductionsSearch(Introductions introductions);
+    List<Introductions> introList();
     // Add End
 }

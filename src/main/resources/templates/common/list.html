@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th = "http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>一覧画面</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
-<link rel="stylesheet" th:href="@{/css/common/common.css}">
-<link rel="stylesheet" th:href="@{/css/input/input.css}">
+<link rel="stylesheet" th:href="@{/css/list/list.css}">
 </head>
 <body>
 	<div class = "wrapper">
@@ -22,6 +21,33 @@
 		<main>
 			<div class="contents-container">
 				<h1>自己紹介登録者一覧</h1>
+				
+				<table border="1">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>名前</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- 15行作成するためのループ -->
+						<th:block th:each="i : ${#numbers.sequence(1, 15)}">
+							<tr>
+								<!-- 配列が空でない、かつ配列のサイズ内の場合の処理 -->
+								<th:block th:if="${not introList.isEmpty() and (i - 1) lt introList.size()}">
+									<!-- リンク先に値を渡す -->
+									<td><a th:href="@{/detail(id=${introList[i-1].user_id}, name=${introList[i-1].name}, kana=${introList[i-1].kana}, gender=${introList[i-1].gender}, hobby=${introList[i-1].hobby}, word=${introList[i-1].word})}" th:text="${introList[i-1].user_id}" class="id"></a></td>
+									<td th:text="${introList[i-1].name}"></td>
+								</th:block>
+								<!-- 配列が空、かつ配列のサイズ外の場合の処理 -->
+								<th:block th:unless="${not introList.isEmpty() and (i - 1) lt introList.size()}">
+									<td></td>
+									<td></td>
+								</th:block>
+							</tr>
+						</th:block>
+					</tbody>
+				</table>
 			</div>
 		</main>
 	</div>
