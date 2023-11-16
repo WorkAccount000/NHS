@@ -7,7 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.form.InputRequest;
 
-
 @Controller
 public class InputController {
 	@RequestMapping("/input")
