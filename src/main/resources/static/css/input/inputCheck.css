@@ -35,7 +35,7 @@ main {
     align-items: center;
     justify-content: center;
     min-height: 80vh;
-   
+   text-align: center;
 }
 
 
@@ -59,6 +59,15 @@ label {
     width: 600px;
     border: 1px solid #ccc;
     border-radius: 3px;
+}
+
+span{
+    width: 600px;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    resize: none;
+    text-align: left;
 }
 
 .DisplaySmallField {

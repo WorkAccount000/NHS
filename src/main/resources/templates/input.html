@@ -28,18 +28,20 @@
 			</div>
 			<br>
 
+
 			<form action="/inputCheck" method="POST">
-				 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 				<div class="main_form">
+
 					<!--　名前入力欄 -->
 
 					<div class="input">
 						<label for="id">名前</label>
 						<input id="id" type="text" name="name">
-						 <span th:if="${nameError}" th:text="${nameError}"></span>
+						<span th:if="${nameError}" th:text="${nameError}"></span>
 					</div>
 					<br>
-
+					<br>
 
 					<!-- フリガナ入力欄 -->
 					<div class="input">
@@ -47,25 +49,22 @@
 						<input id="id" type="text" name="subName">
 					</div>
 					<br>
-
+					<br>
 
 
 					<!-- 性別入力欄　-->
 					<div class="input">
 						<label for="gender">性別</label>
 						<div class="gender">
-							<input type="radio" id="male" name="gender" value="male">
+							<input type="radio" id="male" name="gender" value="男性">
 							<p>男性</p>
 
-							<input type="radio" id="female" name="gender" value="female">
+							<input type="radio" id="female" name="gender" value="女性">
 							<p>女性</p>
 						</div>
 					</div>
 					<br>
-
-
-
-
+					<br>
 
 					<!-- 趣味項目 -->
 
@@ -91,6 +90,8 @@
 						</div>
 					</div>
 					<br>
+				
+
 					<!-- 趣味2行目 -->
 					<div class="input">
 						<label for="hobby"></label>
@@ -103,6 +104,7 @@
 							<p>趣味7</p>
 						</div>
 					</div>
+					<br>
 					<br>
 
 					<!--ひとこと入力欄 -->
