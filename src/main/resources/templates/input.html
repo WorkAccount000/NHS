@@ -27,19 +27,20 @@
 				<h4>自己紹介の内容を紹介してください</h4>
 			</div>
 			<br>
-			
-			<form method="post">
 
+			<form action="/inputCheck" method="post">
+				<input type="hidden" name="_csrf" value="${_csrf.token}">
 				<div class="main_form">
 					<!--　名前入力欄 -->
 
 					<div class="input">
 						<label for="id">名前</label>
 						<input id="id" type="text" name="name">
+						 <span th:if="${nameError}" th:text="${nameError}"></span>
 					</div>
 					<br>
-					
-					
+
+
 					<!-- フリガナ入力欄 -->
 					<div class="input">
 						<label for="id">フリガナ</label>
@@ -73,19 +74,19 @@
 						<label for="hobby">趣味</label>
 
 						<div class="hobby">
-							<input type="checkbox" name="hobby[]" value="趣味1">
+							<input type="checkbox" name="hobby" value="趣味1">
 							<p>趣味1</p>
 
-							<input type="checkbox" name="hobby[]" value="趣味2">
+							<input type="checkbox" name="hobby" value="趣味2">
 							<p>趣味2</p>
 
-							<input type="checkbox" name="hobby[]" value="趣味3">
+							<input type="checkbox" name="hobby" value="趣味3">
 							<p>趣味3</p>
 
-							<input type="checkbox" name="hobby[]" value="趣味4">
+							<input type="checkbox" name="hobby" value="趣味4">
 							<p>趣味4</p>
 
-							<input type="checkbox" name="hobby[]" value="趣味5">
+							<input type="checkbox" name="hobby" value="趣味5">
 							<p>趣味5</p>
 						</div>
 					</div>
@@ -95,10 +96,10 @@
 						<label for="hobby"></label>
 
 						<div class="hobby">
-							<input type="checkbox" name="hobby[]" value="趣味6">
+							<input type="checkbox" name="hobby" value="趣味6">
 							<p>趣味6</p>
 
-							<input type="checkbox" name="hobby[]" value="趣味7">
+							<input type="checkbox" name="hobby" value="趣味7">
 							<p>趣味7</p>
 						</div>
 					</div>
@@ -119,8 +120,8 @@
 						<label for="id"></label>
 
 						<div class="button">
-							<button formaction="/inputCheck"   class="btn">戻る</button>
-							<button formaction="/inputCheck"  class="btn">次へ</button>
+							<input type="submit" class="btn" value="戻る"></button>
+							<input type="submit" class="btn" value="次へ"></button>
 						</div>
 					</div>
 				</div>
