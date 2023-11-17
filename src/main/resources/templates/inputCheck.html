@@ -31,7 +31,7 @@
 			<!-- 名前表示 -->
 			<div class="input">
 				<label for="id">名前</label>
-				<textarea name="DisplaySmallField" th:text="${ir.name}" readonly></textarea>
+				 <span class="DisplaySmallField" th:text="${name}"></span>
 			</div>
 			<br>
 			<br>
@@ -39,7 +39,7 @@
 			<!-- フリガナ表示 -->
 			<div class="input">
 				<label for="id">フリガナ</label>
-				<textarea name="DisplaySmallField" th:text="${ir.subName}" readonly></textarea>
+				<span class="DisplaySmallField" th:text="${subName}"></span>
 			</div>
 			<br>
 			<br>
@@ -47,7 +47,7 @@
 			<!-- 性別表示 -->
 			<div class="input">
 				<label for="gender">性別</label>
-				<textarea name="DisplaySmallField" th:text="${ir.gender}" readonly></textarea>
+				<span class="DisplaySmallField" th:text="${gender}"></span>
 			</div>
 			<br>
 			<br>
@@ -55,7 +55,7 @@
 			<!-- 趣味表示 -->
 			<div class="input">
 				<label for="hobby">趣味</label>
-				<textarea name="DisplayMiddleField" th:text="${ir.hobby}" readonly></textarea>
+				<span class="DisplayMiddleField" th:text="${hobby}"></span>
 			</div>
 			<br>
 			<br>
@@ -64,7 +64,7 @@
 			<!-- ひとこと表示 -->
 			<div class="input">
 				<label for="id">ひとこと</label>
-				<textarea name="DisplayLargeField" th:text="${ir.comment}" readonly></textarea>
+				<span class="DisplayLargeField" th:text="${comment}"></span>
 			</div>
 		</div>
 		<br>
@@ -76,7 +76,7 @@
 		<!-- 送信/戻るボタン -->
 		<div class="input">
 			<div class="button">
-				<input type="submit" value="戻る" class="btn">
+				 <a href="/input" class="btn">戻る</a>
 				<input type="submit" value="完了" class="btn">
 			</div>
 		</div>

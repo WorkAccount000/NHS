@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,7 +15,7 @@ public class InputController {
         return "input";
     }
 
-    @RequestMapping("/inputCheck")
+    @RequestMapping(value = "/inputCheck", method = RequestMethod.POST)
     public ModelAndView inputResult(
             @RequestParam("name") String name,
             @RequestParam("subName") String subName,
