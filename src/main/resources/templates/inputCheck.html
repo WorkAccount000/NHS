@@ -25,62 +25,63 @@
 			<h4>自己紹介登録確認</h4>
 		</div>
 		<br>
+		<form action="/saveInput" method="POST">
+			<div class="main_form">
+				<input type="hidden" name="_csrf" value="${_csrf.token}" />
+				<!-- 名前表示 -->
+				<div class="input">
+					<label for="id">名前</label>
+					<span class="DisplaySmallField" th:text="${ir.name}"></span>
+				</div>
+				<br>
+				<br>
 
-		<div class="main_form">
-			<input type="hidden" name="_csrf" value="${_csrf.token}" />
-			<!-- 名前表示 -->
+				<!-- フリガナ表示 -->
+				<div class="input">
+					<label for="id">フリガナ</label>
+					<span class="DisplaySmallField" th:text="${ir.subName}"></span>
+				</div>
+				<br>
+				<br>
+
+				<!-- 性別表示 -->
+				<div class="input">
+					<label for="gender">性別</label>
+					<span class="DisplaySmallField" th:text="${ir.gender}"></span>
+				</div>
+				<br>
+				<br>
+
+				<!-- 趣味表示 -->
+				<div class="input">
+					<label for="hobby">趣味</label>
+					<span class="DisplayMiddleField" th:text="${ir.hobby}"></span>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+
+				<!-- ひとこと表示 -->
+				<div class="input">
+					<label for="id">ひとこと</label>
+					<span class="DisplayLargeField" th:text="${ir.comment}"></span>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+
+			<!-- 送信/戻るボタン -->
 			<div class="input">
-				<label for="id">名前</label>
-				<span class="DisplaySmallField" th:text="${name}"></span>
+				<label for="id"></label>
+				<div class="button">
+					<a href="/input" class="btn">戻る</a>
+					<input type="submit" value="完了" class="btn">
+				</div>
 			</div>
-			<br>
-			<br>
-
-			<!-- フリガナ表示 -->
-			<div class="input">
-				<label for="id">フリガナ</label>
-				<span class="DisplaySmallField" th:text="${subName}"></span>
-			</div>
-			<br>
-			<br>
-
-			<!-- 性別表示 -->
-			<div class="input">
-				<label for="gender">性別</label>
-				<span class="DisplaySmallField" th:text="${gender}"></span>
-			</div>
-			<br>
-			<br>
-
-			<!-- 趣味表示 -->
-			<div class="input">
-				<label for="hobby">趣味</label>
-				<span class="DisplayMiddleField" th:text="${hobby}"></span>
-			</div>
-			<br>
-			<br>
-			<br>
-		<br>
-
-			<!-- ひとこと表示 -->
-			<div class="input">
-				<label for="id">ひとこと</label>
-				<span class="DisplayLargeField" th:text="${comment}"></span>
-			</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-
-		<!-- 送信/戻るボタン -->
-		<div class="input">
-			<label for="id"></label>
-			<div class="button">
-				<a href="/input" class="btn">戻る</a>
-				<input type="submit" value="完了" class="btn">
-			</div>
-		</div>
+		</form>
 	</main>
 </body>
 

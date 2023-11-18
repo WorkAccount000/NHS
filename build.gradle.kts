@@ -22,6 +22,7 @@ repositories {
 }
 
 dependencies {
+implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
