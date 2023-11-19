@@ -32,7 +32,7 @@ public class InputController {
 	@PostMapping("/saveInput")
 	public ModelAndView saveInput(@ModelAttribute InputRequest ir, ModelAndView mv) {
 		inputMapper.insertInput(ir);
-		mv.setViewName("inputSaved"); // データ保存後の表示画面
+		mv.setViewName("inputCheck"); // データ保存後の表示画面
 		return mv;
 	}
 }
