@@ -29,5 +29,17 @@
 			<columnOverride column="created_at" javaType="java.time.LocalDate" property="createdDate"/>
 		</table>
 		
+		<table tableName="introductions" domainObjectName="Introduction">
+			<columnOverride column="introduction_id" property="introductionId" />
+			<columnOverride column="user_id" property="userId" />
+			<columnOverride column="name" property="name" />
+			<columnOverride column="kana" property="kana" />
+			<columnOverride column="gender" property="gender" />
+			<columnOverride column="hobby" property="hobby" />
+			<columnOverride column="word" property="word" />
+			<columnOverride column="created_at" javaType="java.time.LocalDate" property="createdDate" />
+			<columnOverride column="updated_at" javaType="java.time.LocalDate" property="updatedDate" />
+		</table>
+		
   	</context>
 </generatorConfiguration>

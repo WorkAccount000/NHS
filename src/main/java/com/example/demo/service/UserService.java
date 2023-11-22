@@ -3,29 +3,55 @@ package com.example.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.mapper.IntroductionMapper;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.model.Introduction;
 import com.example.demo.model.User;
 
 @Service
 public class UserService {
 	private final UserMapper userMapper;
+	private final IntroductionMapper introductionMapper;
 	
 	@Autowired
-	public UserService(UserMapper userMapper) {
+	public UserService(UserMapper userMapper, IntroductionMapper introductionMapper) {
 		this.userMapper = userMapper;
+		this.introductionMapper = introductionMapper;
 	}
 	
-	// User クラスを受け取って登録する。
-	public void register(User user) {
+	/**
+	 * データベースにユーザーの登録を行う
+	 * @param user 登録するユーザーエンティティ
+	 */
+	public void userRegistration(User user) {
 		userMapper.insert(user);
 	}
 	
-	public User searchById(String id) {
+	/**
+	 * user_idでデータベースに登録されたユーザー情報を取得する
+	 * @param id 検索するuser_id
+	 * @return 取得したユーザーエンティティ
+	 */
+	public User userSearchById(String id) {
 		return userMapper.selectByPrimaryKey(id);
 	}
 	
-	public boolean checkRegistrable(String userId) {
+	/**
+	 * 登録できるuser_idか確認する
+	 * @param userId 確認するuser_id
+	 * @return 登録できるかどうかの判定
+	 */
+	public boolean checkUserRegistrable(String userId) {
 		return userMapper.selectByPrimaryKey(userId) == null ? true : false;
+	}
+	
+	/**
+	 * user_idでデータベースに登録された自己紹介情報を取得する
+	 * @param userId 検索するuser_id
+	 * @return 取得した自己紹介情報
+	 */
+	public Introduction selectByUserId(String userId) {
+		return introductionMapper.selectByUserId(userId);
 	}
 	
 	/**

@@ -40,14 +40,14 @@ public class SignupController {
 			return "signup/signup";
 		}
 		User user = new User();
-		boolean registrable = userService.checkRegistrable(form.getUserId());
+		boolean registrable = userService.checkUserRegistrable(form.getUserId());
 		String res = "";
 		if(registrable) {
 			user.importForm(form);
 			// post で受け取ったUserクラスの password をハッシュ化
 			user.setPassword(userService.getHashString(user.getPassword()));
 			user.setCreatedDate(LocalDate.now());
-			userService.register(user);
+			userService.userRegistration(user);
 			res = "redirect:/top/";
 		} else {
 			model.addAttribute(form);

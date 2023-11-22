@@ -23,15 +23,16 @@ public class LoginController {
 	
 	@GetMapping("/")
 	public String getLogin(Model model) {
-		model.addAttribute("loginForm", new LoginForm());
 		return "login/login";
 	}
 	
 	@PostMapping("/login_check")
 	public String checkLogin(@Validated(GroupOrder.class) @ModelAttribute("form") LoginForm form, BindingResult result, Model model) {
+		System.out.println("postController");
 		if(result.hasErrors()) {
+			System.out.println("validation error");
 			return "login/login";
 		}
-		return "redirect:/login_check";
+		return "redirect:/top/";
 	}
 }

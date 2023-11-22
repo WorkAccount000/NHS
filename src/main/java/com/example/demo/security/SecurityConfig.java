@@ -20,6 +20,10 @@ public class SecurityConfig {
 		this.customAuthProvider = customAuthProvider;
 		this.customAuthFailureHandler = customAuthFailureHandler;
 	}
+//	@Autowired
+//	public SecurityConfig(CustomAuthenticationProvider customAuthProvider) {
+//		this.customAuthProvider = customAuthProvider;
+//	}
 	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -30,14 +34,14 @@ public class SecurityConfig {
 					.usernameParameter("username")
 					.passwordParameter("password")
 					.loginProcessingUrl("/login/login_check")
-					.failureHandler(customAuthFailureHandler)
+					.permitAll()
 					.defaultSuccessUrl("/top/", true)
-					.permitAll())
+					.failureHandler(customAuthFailureHandler)
+//					.failureUrl("/login/?error=true")
+					)
 			.authorizeHttpRequests(
 				test -> test
 					.requestMatchers("/signup").permitAll()
-//					.requestMatchers("/completed").permitAll()
-//					.requestMatchers("/common").permitAll()
 					.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 					.anyRequest().authenticated());
 		return http.build();
