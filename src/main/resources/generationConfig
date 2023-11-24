@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>																				
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">																				
+																				
+<generatorConfiguration>																				
+  <classPathEntry location="C:\Users\{ユーザー名}\.m2\repository\org\postgresql\postgresql\42.6.0\postgresql-42.6.0.jar" /> 																				
+  <context id="PostgresTables" targetRuntime="MyBatis3">																				
+																				
+    <!-- スキーマ情報を取得する DB への接続設定 -->																				
+    <jdbcConnection driverClass="org.postgresql.Driver"																				
+        connectionURL="jdbc:postgresql://localhost:5432/postgres"																				
+        userId="postgres"																				
+        password="otamina0214">																				
+    </jdbcConnection>																				
+																				
+    <!-- SELECT 結果等を格納するドメインモデルを生成する設定 -->																				
+    <javaModelGenerator targetPackage="sample.common.dao.entity" targetProject="samplePJ/src/main/java">																				
+      <property name="enableSubPackages" value="false" />																				
+      <property name="trimStrings" value="true" />																				
+    </javaModelGenerator>																				
+																				
+    <!-- SQL 設定が記述された XML を生成する設定 -->																				
+    <sqlMapGenerator targetPackage="sample.common.dao.mapper" targetProject="samplePJ/src/main/resources">																				
+      <property name="enableSubPackages" value="false" />																				
+    </sqlMapGenerator>																				
+    <!-- マッパークラスを生成する設定 -->																				
+    <javaClientGenerator type="XMLMAPPER" targetPackage="sample.common.dao.mapper" targetProject="samplePJ/src/main/java">																				
+      <property name="enableSubPackages" value="false" />																				
+    </javaClientGenerator>																				
+																				
+    <!-- コードを生成するテーブルを指定 -->																				
+    <table schema="postgres" tableName="user">																				
+      <property name="useActualColumnNames" value="true" />																				
+    </table>																				
+																				
+  </context>																				
+</generatorConfiguration>																				
