@@ -11,9 +11,9 @@ import lombok.Setter;
 public class InputRequest {
 	
 	private String name;
-	private String subName;
+	private String kana;
 	private String gender;
 	private List<String> hobby;
-	private String comment;
+	private String word;
 	
 }

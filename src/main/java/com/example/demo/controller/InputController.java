@@ -31,8 +31,9 @@ public class InputController {
 
 	@PostMapping("/saveInput")
 	public ModelAndView saveInput(@ModelAttribute InputRequest ir, ModelAndView mv) {
-		inputMapper.insertInput(ir);
-		mv.setViewName("inputCheck"); // データ保存後の表示画面
+		inputMapper.insertInput(ir); // データをデータベースに登録
+		mv.addObject("ir", ir);
+		mv.setViewName("inputCheck"); // 同じ確認画面に戻る
 		return mv;
 	}
 }
