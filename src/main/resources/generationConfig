@@ -3,7 +3,7 @@
 
 <generatorConfiguration>
   <!-- PostgreSQL ドライバのクラスパス。Maven リポジトリからのパスを指定 -->
-  <classPathEntry location="C:\Users\DESKTOP-H6PB507\seali\.m2\repository\org\postgresql\postgresql\42.6.0\postgresql-42.6.0.jar" />
+  <classPathEntry location="C:\Users\seali\.m2\repository\org\postgresql\postgresql\42.6.0\postgresql-42.6.0.jar" />
 
   <!-- ジェネレータのコンテキスト設定 -->
   <context id="PostgresTables" targetRuntime="MyBatis3">
