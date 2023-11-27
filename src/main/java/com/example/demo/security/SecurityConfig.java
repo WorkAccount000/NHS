@@ -19,7 +19,7 @@ public class SecurityConfig {
 					.defaultSuccessUrl("/login"))
 			.authorizeHttpRequests(
 				test -> test
-				.requestMatchers("/register", "/common", "/input", "/inputCheck","/input/inputCheck")
+				.requestMatchers("/register", "/common", "/input", "/inputCheck","/input/inputCheck","/saveInput")
                 .permitAll()
 					.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 					.anyRequest().authenticated());
