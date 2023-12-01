@@ -10,30 +10,47 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.form.InputRequest;
-import com.example.demo.mapper.InputMapper;
+import com.example.demo.mybatis.dmain.Introductions;
+import com.example.demo.mybatis.mapper.IntroductionsMapper;
 
 @Controller
 public class InputController {
-	@GetMapping("/input")
-	public String input() {
-		return "input";
-	}
 
-	@Autowired
-	private InputMapper inputMapper;
+    @Autowired
+    private IntroductionsMapper introductionsMapper;
 
-	@RequestMapping(value = "/inputCheck", method = RequestMethod.POST)
-	public ModelAndView inputResult(@ModelAttribute InputRequest ir, ModelAndView mv) {
-		mv.addObject("ir", ir);
-		mv.setViewName("inputCheck");
-		return mv;
-	}
+    @GetMapping("/input")
+    public String input() {
+        return "input";
+    }
 
-	@PostMapping("/saveInput")
-	public ModelAndView saveInput(@ModelAttribute InputRequest ir, ModelAndView mv) {
-		inputMapper.insertInput(ir); // データをデータベースに登録
-		mv.addObject("ir", ir);
-		mv.setViewName("inputCheck"); // 同じ確認画面に戻る
-		return mv;
-	}
+    @RequestMapping(value = "/inputCheck", method = RequestMethod.POST)
+    public ModelAndView inputResult(@ModelAttribute InputRequest ir, ModelAndView mv) {
+        mv.addObject("ir", ir);
+        mv.setViewName("inputCheck");
+        return mv;
+    }
+
+    @PostMapping("/saveInput")
+    public ModelAndView saveInput(@ModelAttribute InputRequest ir, ModelAndView mv) {
+        Introductions introductions = convertToEntity(ir);
+        introductionsMapper.insert(introductions);
+
+        mv.addObject("ir", ir);
+        mv.setViewName("inputCheck"); // 同じ確認画面に戻る
+        return mv;
+    }
+
+    private Introductions convertToEntity(InputRequest ir) {
+        // InputRequestからIntroductionsエンティティに変換するロジックを実装
+        Introductions introductions = new Introductions();
+        introductions.setName(ir.getName());
+        introductions.setKana(ir.getKana());
+        introductions.setGender(ir.getGender());
+        // 趣味やひとことなど、他のフィールドについても変換を行う
+        // 例: introductions.setHobby(String.join(",", ir.getHobby())); // 趣味をカンマ区切りの文字列に変換
+        introductions.setWord(ir.getWord());
+
+        return introductions;
+    }
 }
