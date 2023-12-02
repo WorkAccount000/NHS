@@ -47,8 +47,6 @@ public class InputController {
         introductions.setName(ir.getName());
         introductions.setKana(ir.getKana());
         introductions.setGender(ir.getGender());
-        // 趣味やひとことなど、他のフィールドについても変換を行う
-        // 例: introductions.setHobby(String.join(",", ir.getHobby())); // 趣味をカンマ区切りの文字列に変換
         introductions.setWord(ir.getWord());
 
         return introductions;
