@@ -42,13 +42,15 @@ public class InputController {
     }
 
     private Introductions convertToEntity(InputRequest ir) {
-        // InputRequestからIntroductionsエンティティに変換するロジックを実装
         Introductions introductions = new Introductions();
         introductions.setName(ir.getName());
         introductions.setKana(ir.getKana());
         introductions.setGender(ir.getGender());
+        // 趣味をListからカンマ区切りのStringに変換してセット
+        introductions.setHobby(String.join(", ", ir.getHobby()));
         introductions.setWord(ir.getWord());
 
         return introductions;
     }
+
 }
