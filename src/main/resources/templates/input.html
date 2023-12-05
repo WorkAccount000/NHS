@@ -10,125 +10,123 @@
 
 <body>
 
-	<body>
-		<header>
-			<ul class="header-icon">
-				<img class="icon" th:src="@{/images/icon.png}" alt="アイコン">
-			</ul>
+	<header>
+		<ul class="header-icon">
+			<img class="icon" th:src="@{/images/icon.png}" alt="アイコン">
+		</ul>
 
-			<div class="headerMenu">
-				<h2 class="project-title">JavaTeamDevelopment</h2>
-			</div>
-		</header>
+		<div class="headerMenu">
+			<h2 class="project-title">JavaTeamDevelopment</h2>
+		</div>
+	</header>
+	<main>
+		<!-- タイトル -->
+		<div class="title">
+			<h4>自己紹介の内容を紹介してください</h4>
+		</div>
+		<br>
 
-		<main>
-			<!-- タイトル -->
-			<div class="title">
-				<h4>自己紹介の内容を紹介してください</h4>
-			</div>
-			<br>
+		<form action="/inputCheck" method="POST" th:object="${inputRequest}">
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+			<div class="main_form">
+
+				<!--　名前入力欄 -->
 
 
-			<form action="/inputCheck" method="POST">
-				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-				<div class="main_form">
-
-					<!--　名前入力欄 -->
-
-					<div class="input">
-						<label for="id">名前</label>
-						<input id="id" type="text" name="name">
-						<span th:if="${nameError}" th:text="${nameError}"></span>
-					</div>
+				<div class="input">
+					<label for="name">名前</label>
+					<input class="id" id="name" type="text" th:field="*{name}">
 					<br>
+				</div>
+				<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+				<br><br>
+
+				<!-- フリガナ入力欄 -->
+
+				<div class="input">
+					<label for="kana">フリガナ</label>
+					<input class="id" id="kana" type="text" th:field="*{kana}">
 					<br>
+				</div>
+				<span th:if="${#fields.hasErrors('kana')}" th:errors="*{kana}"></span>
+				<br><br>
 
-					<!-- フリガナ入力欄 -->
-					<div class="input">
-						<label for="id">フリガナ</label>
-						<input id="id" type="text" name="kana">
-					</div>
-					<br>
-					<br>
+				<!-- 性別入力欄　-->
 
+				<div class="input">
+					<label for="gender">性別</label>
+					<div class="gender">
+						<input type="radio" id="male" name="gender" value="男性">
+						<p>男性</p>
 
-					<!-- 性別入力欄　-->
-					<div class="input">
-						<label for="gender">性別</label>
-						<div class="gender">
-							<input type="radio" id="male" name="gender" value="男性">
-							<p>男性</p>
-
-							<input type="radio" id="female" name="gender" value="女性">
-							<p>女性</p>
-						</div>
-					</div>
-					<br>
-					<br>
-
-					<!-- 趣味項目 -->
-
-					<!--- 趣味1行目 -->
-					<div class="input">
-						<label for="hobby">趣味</label>
-
-						<div class="hobby">
-							<input type="checkbox" name="hobby" value="趣味1">
-							<p>趣味1</p>
-
-							<input type="checkbox" name="hobby" value="趣味2">
-							<p>趣味2</p>
-
-							<input type="checkbox" name="hobby" value="趣味3">
-							<p>趣味3</p>
-
-							<input type="checkbox" name="hobby" value="趣味4">
-							<p>趣味4</p>
-
-							<input type="checkbox" name="hobby" value="趣味5">
-							<p>趣味5</p>
-						</div>
-					</div>
-					<br>
-				
-
-					<!-- 趣味2行目 -->
-					<div class="input">
-						<label for="hobby"></label>
-
-						<div class="hobby">
-							<input type="checkbox" name="hobby" value="趣味6">
-							<p>趣味6</p>
-
-							<input type="checkbox" name="hobby" value="趣味7">
-							<p>趣味7</p>
-						</div>
-					</div>
-					<br>
-					<br>
-
-					<!--ひとこと入力欄 -->
-					<div class="input">
-						<label for="id">ひとこと</label>
-						<textarea name="word"></textarea>
-					</div>
-					<br>
-					<br>
-					<br>
-					<br>
-
-					<!-- 送信/戻るボタン -->
-					<div class="input">
-						<label for="id"></label>
-
-						<div class="button">
-							<input type="submit" class="btn" value="戻る">
-							<input type="submit" class="btn" value="次へ">
-						</div>
+						<input type="radio" id="female" name="gender" value="女性">
+						<p>女性</p>
 					</div>
 				</div>
-			</form>
-		</main>
-	</body>
+				<br><br>
+
+				<!-- 趣味項目 -->
+
+				<!--- 趣味1行目 -->
+				<div class="input">
+					<label for="hobby">趣味</label>
+
+					<div class="hobby">
+						<input type="checkbox" th:field="*{hobby}" value="趣味1">
+						<p>趣味1</p>
+
+						<input type="checkbox" th:field="*{hobby}" value="趣味2">
+						<p>趣味2</p>
+
+						<input type="checkbox" th:field="*{hobby}" value="趣味3">
+						<p>趣味3</p>
+
+						<input type="checkbox" th:field="*{hobby}" value="趣味4">
+						<p>趣味4</p>
+
+						<input type="checkbox" th:field="*{hobby}" value="趣味5">
+						<p>趣味5</p>
+					</div>
+				</div>
+				<br>
+
+
+				<!-- 趣味2行目 -->
+				<div class="input">
+					<label for="hobby"></label>
+
+					<div class="hobby">
+						<input type="checkbox" th:field="*{hobby}" value="趣味6">
+						<p>趣味6</p>
+
+						<input type="checkbox" th:field="*{hobby}" value="趣味7">
+						<p>趣味7</p>
+					</div>
+				</div>
+				<span th:if="${#fields.hasErrors('hobby')}" th:errors="*{hobby}"></span>
+				<br>
+				<br>
+
+				<!--ひとこと入力欄 -->
+
+				<div class="input">
+					<label for="word">ひとこと</label>
+					<textarea name="word"></textarea>
+				</div>
+				<br><br><br><br>
+
+				<!-- 送信/戻るボタン -->
+
+				<div class="input">
+					<label for="id"></label>
+					<div class="button">
+						<input type="submit" class="btn" value="戻る">
+						<input type="submit" class="btn" value="次へ">
+					</div>
+				</div>
+			</div>
+		</form>
+	</main>
+</body>
 
 </html>

@@ -55,7 +55,8 @@ label {
 }
 
 /* 入力欄デザイン指定 */
-#id {
+
+.id {
     width: 600px;
     border: 1px solid #ccc;
     border-radius: 3px;

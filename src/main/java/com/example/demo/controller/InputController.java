@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,8 @@ import com.example.demo.form.InputRequest;
 import com.example.demo.mybatis.dmain.Introductions;
 import com.example.demo.mybatis.mapper.IntroductionsMapper;
 
+import jakarta.validation.Valid;
+
 @Controller
 public class InputController {
 
@@ -20,24 +24,30 @@ public class InputController {
     private IntroductionsMapper introductionsMapper;
 
     @GetMapping("/input")
-    public String input() {
+    public String input(Model model) {
+        model.addAttribute("inputRequest", new InputRequest()); 
         return "input";
     }
 
+
     @RequestMapping(value = "/inputCheck", method = RequestMethod.POST)
-    public ModelAndView inputResult(@ModelAttribute InputRequest ir, ModelAndView mv) {
+    public ModelAndView inputResult(@Valid @ModelAttribute("inputRequest") InputRequest ir, BindingResult bindingResult, ModelAndView mv) {
+        if (bindingResult.hasErrors()) {
+            mv.setViewName("input");
+            return mv;
+        }
         mv.addObject("ir", ir);
         mv.setViewName("inputCheck");
         return mv;
     }
 
     @PostMapping("/saveInput")
-    public ModelAndView saveInput(@ModelAttribute InputRequest ir, ModelAndView mv) {
+    public ModelAndView saveInput(@ModelAttribute("ir") InputRequest ir, ModelAndView mv) {
         Introductions introductions = convertToEntity(ir);
         introductionsMapper.insert(introductions);
 
         mv.addObject("ir", ir);
-        mv.setViewName("inputCheck"); // 同じ確認画面に戻る
+        mv.setViewName("inputCheck");
         return mv;
     }
 
@@ -46,11 +56,9 @@ public class InputController {
         introductions.setName(ir.getName());
         introductions.setKana(ir.getKana());
         introductions.setGender(ir.getGender());
-        // 趣味をListからカンマ区切りのStringに変換してセット
         introductions.setHobby(String.join(", ", ir.getHobby()));
         introductions.setWord(ir.getWord());
 
         return introductions;
     }
-
 }
