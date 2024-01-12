@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.demo.form.IntroductionsRequest;
+import com.example.demo.request.IntroductionsRequest;
 
 @Controller
 

@@ -5,6 +5,7 @@
 <title>詳細画面</title>
 <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
 <link rel="stylesheet" th:href="@{/css/detail/detail.css}">
+<script src="js/delete.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -57,8 +58,9 @@
 						<form>
 							<button class = "btn cmn" name = "edit">編集</button> 
 						</form>
+						<!--ボタン実装（ポップアップ有り）-->
 						<form>
-							<button class = "btn dlt" name = "delete">削除</button>
+							<button class = "btn dlt" id = "delete" name = "delete" th:onclick ="|Popup('__${ir.id}__')|">削除</button>
 						</form>
 					</div>
 				</div>
